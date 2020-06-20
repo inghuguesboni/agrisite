@@ -13,12 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+}); */
+
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('/achat', 'HomeController@achat')->name('achat');
+Route::get('/contact', 'HomeController@contact')->name('contact');
 
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
-
