@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use Illuminate\Http\Request;
+use App\Category;
 
 class ProductController extends Controller
 {
@@ -14,9 +15,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
     }
-
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -24,7 +24,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('product.edit')->withCategories(Category::all());
     }
 
     /**
@@ -46,7 +46,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        return view('detail')->withProduct($product)->withCategories(Category::all());
     }
 
     /**
